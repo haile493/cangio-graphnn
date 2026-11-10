@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cangio_graphnn"
+version = "1.0.0"
+description = "Graph Neural Networks and Bi-temporal Foundation Architectures for Mangrove Canopy Disturbance Mapping"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [
+    {name = "Can Gio Mangrove Remote Sensing Research Team"}
+]
+keywords = [
+    "remote sensing",
+    "graph neural networks",
+    "mangrove",
+    "canopy disturbance",
+    "change detection",
+    "foundation models",
+    "earth observation"
+]
+dependencies = [
+    "torch>=2.0.0",
+    "torchvision>=0.15.0",
+    "rasterio>=1.3.0",
+    "opencv-python>=4.7.0",
+    "numpy>=1.23.0,<2.0.0",
+    "scipy>=1.10.0",
+    "matplotlib>=3.6.0",
+    "scikit-learn>=1.2.0"
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*", "scripts*"]
