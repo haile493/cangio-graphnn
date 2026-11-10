@@ -203,8 +203,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📚 References
 
-- Jebur et al. (2026). *A hybrid remote sensing socio-ecological index (HRSEI) based on spatial grid GNN*. Journal of Hazardous Materials Advances.
-- Hu & Wu (2026). *Venagnosis: A Progressive Fusion Graph Network for Parcel-Level Degradation Mapping*. IEEE Access.
-- Liu et al. (2026). *Graph-based Semantic Rerouting Interaction for Rotation-Robust Remote Sensing*. ACM International Conference on Multimedia Retrieval (ICMR).
-- Shao et al. (2026). *CGMN: Multi-Branch Spatial Graph Recurrent Network for Forest Canopy Disturbance*. GIScience & Remote Sensing.
+- KareemJebur et al. (2026). *A graph neural network hybrid index for environmental quality assessment and hazard risk prediction*. Journal of Hazardous Materials Advances.
+- Hu & Wu (2026). *A knowledge-guided graph reasoning framework for multi-modal detection of land degradation*. IEEE Access.
+- Liu et al. (2026). *Graph-based rotation-robust semantic modeling for oriented object detection in remote sensing*. ACM International Conference on Multimedia Retrieval (ICMR).
+- Shao et al. (2026). *Mapping Chinese urban carbon emissions with a graph-based multi-branch deep learning framework*. GIScience & Remote Sensing.
 - Cheng et al. (2021). *Boundary IoU: Improving Object-Centric Image Segmentation Evaluation*. IEEE/CVF CVPR.
