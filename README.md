@@ -16,7 +16,7 @@ This repository implements, standardizes, and benchmarks **6 Graph Neural Networ
    - Fuses Segment Anything (SAM) foundation visual priors with remote sensing graph reasoning.
    - Combines Synergistic Parcel Characterization (SPC), Multi-Relational Knowledge Graphs (spatial, semantic, corridor veins), Dynamic Dilated KNN Max-Relative differencing, and Dense Multi-Scale Boundary Refinement.
 
-2. **HRSEI-GNN** (*Jebur et al., J. Hazard. Mater. Adv. 2026*):
+2. **HRSEI-GNN** (*KareemJebur et al., J. Hazard. Mater. Adv. 2026*):
    - Biophysical Polarity Normalization separating positive and negative degradation indicators.
    - 4/8-nearest neighbor distance-weighted spatial grid message passing and ecological index estimation.
 
