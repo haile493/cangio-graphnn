@@ -11,3 +11,6 @@ scipy>=1.10.0
 # Evaluation & Metrics
 scikit-learn>=1.2.0
 matplotlib>=3.6.0
+
+# Foundation model prior (BiG-SAM)
+segment-anything>=1.0

@@ -32,7 +32,7 @@ ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if ROOT_DIR not in sys.path:
     sys.path.insert(0, ROOT_DIR)
 
-from ag_models import BinaryDiceLoss, FocalLoss, build_loss, build_model
+from src.nets import BinaryDiceLoss, FocalLoss, build_loss, build_model
 from src.config import Config
 from src.dataset import CanGioDataset, discover_scenes
 from src.evaluate import compute_binary_metrics, compute_boundary_iou, stretch_rgb

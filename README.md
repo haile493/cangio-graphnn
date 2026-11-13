@@ -47,7 +47,12 @@ cangio_graphnn/
 │   ├── evaluate.py               # IoU, Dice/F1, Precision, Recall, Accuracy, Boundary IoU
 │   ├── indices.py                # Normalized Difference Vegetation/Moisture Indices (NDVI, NBR, NDWI)
 │   ├── models.py                 # Unified model builder & bi-temporal wrapper
-│   └── models_fallback.py        # Standalone, dependency-free PyTorch implementations
+│   └── nets/                     # Self-contained model implementations (no external model library)
+│       ├── big_sam_v2.py / big_sam_v2_modules.py    # Proposed BiG-SAM (v2) + loss
+│       ├── big_sam.py / big_sam_modules.py          # BiG-SAM v1
+│       ├── graph_models.py / graph_modules.py       # HRSEI-GNN, Venagnosis PF-GNN, GSRI-Net, CGMN
+│       ├── losses.py                                # Dice, Focal, Venagnosis and CGMN losses
+│       └── base.py / registry.py                    # BaseModel, ModelConfig, model/loss registries
 ├── scripts/
 │   ├── prepare_dataset.py        # Dataset discovery, calibration check, and pair verification
 │   ├── run_graph_benchmark.py    # Benchmark for single-date graph models (50 epochs)
@@ -68,12 +73,36 @@ cangio_graphnn/
 
 ---
 
+## 🧩 Model Source Code & Checkpoints
+
+All six architectures are implemented in `src/nets/` and registered by name; `src/models.py` exposes `build_model(name, in_channels=9, num_classes=1)`.
+
+| Registry name | Class | Role |
+|---|---|---|
+| `big_sam_v2` | `BiGSAMNetV2` | Proposed model |
+| `venagnosis_pfgnn` | `VenagnosisPFGNNNet` | Baseline |
+| `cgmn_net` | `CGMNMultiBranchNet` | Baseline |
+| `hrsei_gnn` | `HRSEIGNNNet` | Baseline |
+| `gsri_net` | `GSRIRotationRobustNet` | Baseline |
+| `big_sam` | `BiGSAMNet` | BiG-SAM v1 (not in the manuscript tables) |
+
+```python
+from src.models import build_model
+model = build_model("venagnosis_pfgnn", in_channels=9, num_classes=1)
+```
+
+**SAM prior (BiG-SAM).** The pretrained BiG-SAM variants use a frozen SAM ViT-B image encoder. Install `segment-anything`, download `sam_vit_b_01ec64.pth`, and point to it with `SAM_CHECKPOINT=/path/to/sam_vit_b_01ec64.pth` (default: `results/models/sam_vit_b_01ec64.pth`). If the file is missing the model warns and falls back to a scratch patch encoder, whose weights are not compatible with the pretrained checkpoints.
+
+Trained checkpoints are not stored in git (`results/models/` is ignored). Check that a checkpoint matches the code with `model.load_state_dict(state, strict=True)`.
+
+---
+
 ## 🚀 Installation
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/cangio-earth/cangio_graphnn.git
-cd cangio_graphnn
+git clone https://github.com/haile493/cangio-graphnn.git
+cd cangio-graphnn
 ```
 
 ### 2. Create and activate a Python environment

@@ -14,46 +14,25 @@ from typing import Any, Dict
 import torch
 import torch.nn as nn
 
-try:
-    from ag_models import (
-        BiGSAMConfig,
-        BiGSAMLoss,
-        BiGSAMLossV2,
-        BiGSAMNet,
-        BiGSAMNetV2,
-        BiGSAMV2Config,
-        CGMNCompositeLoss,
-        CGMNMultiBranchNet,
-        GSRIRotationRobustNet,
-        HRSEIGNNNet,
-        VenagnosisLoss,
-        VenagnosisPFGNNNet,
-        BinaryDiceLoss,
-        FocalLoss,
-        build_loss,
-        build_model,
-    )
-    from ag_models.models.big_sam import BinaryFocalLoss
-except ImportError:
-    from src.models_fallback import (
-        BiGSAMConfig,
-        BiGSAMLoss,
-        BiGSAMLossV2,
-        BiGSAMNet,
-        BiGSAMNetV2,
-        BiGSAMV2Config,
-        CGMNCompositeLoss,
-        CGMNMultiBranchNet,
-        GSRIRotationRobustNet,
-        HRSEIGNNNet,
-        VenagnosisLoss,
-        VenagnosisPFGNNNet,
-        BinaryDiceLoss,
-        BinaryFocalLoss,
-        FocalLoss,
-        build_loss,
-        build_model,
-    )
+from src.nets import (
+    BiGSAMConfig,
+    BiGSAMLoss,
+    BiGSAMLossV2,
+    BiGSAMNet,
+    BiGSAMNetV2,
+    BiGSAMV2Config,
+    BinaryDiceLoss,
+    BinaryFocalLoss,
+    CGMNCompositeLoss,
+    CGMNMultiBranchNet,
+    FocalLoss,
+    GSRIRotationRobustNet,
+    HRSEIGNNNet,
+    VenagnosisLoss,
+    VenagnosisPFGNNNet,
+    build_loss,
+    build_model,
+)
 
 GRAPH_MODEL_NAMES = [
     "big_sam",
